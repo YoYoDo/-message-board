@@ -1,1 +1,76 @@
-
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”> 
+<html xmlns=”http://www.w3.org/1999/xhtml”> 
+<head> 
+<meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″ /> 
+<title>表格操作</title> 
+<style type=”text/css”> 
+body { 
+   font-size: 13px; 
+   line-height: 25px; 
+} 
+table { 
+    border-top: 1px solid #333; 
+    border-bottom: 1px solid #333; 
+    width: 300px; 
+} 
+td { 
+    border-right: 1px solid #333; 
+    border-bottom: 1px solid #333; 
+} 
+.title { 
+    text-align: center; 
+    font-weight: bold; 
+    background: #ccc; 
+} 
+.center { 
+    text-align: center; 
+} 
+#displayInfo { 
+    color: red; 
+} 
+</style> 
+<script type=”text/javascript”> 
+   function addRow() { //增加一行 
+       var tableObj = document.getElementById(‘myTable’); 
+       var rowNums = tableObj.rows.length; 
+       var newRow = tableObj.insertRow(rowNums); 
+       var col1 = newRow.insertCell(0); 
+       col1.innerHTML = “幸福從天而降”; 
+       var col2 = newRow.insertCell(1); 
+       col2.innerHTML = “$18.5”; 
+       col2.align = “center”; 
+       var divInfo = document.getElementById(‘displayInfo’); 
+       divInfo.innerHTML = “新增商品成功”; 
+   } 
+   function delRow() {  //刪除第二行 
+       document.getElementById(‘myTable’).deleteRow(1); 
+       var divInfo = document.getElementById(‘displayInfo’); 
+       divInfo.innerHTML = “刪除商品成功”; 
+   } 
+   function updateRow() {  //更新行的資訊 
+       var uRow = document.getElementById(‘myTable’).rows[0]; 
+       uRow.className = “title”; 
+   } 
+</script> 
+</head> 
+<body> 
+<table border=”0″ cellpadding=”0″ cellspacing=”0″ id=”mytable”> 
+   <tr id=”row1″> 
+       <td>書名</td> 
+       <td>價格</td> 
+   </tr> 
+   <tr id=”row2″> 
+       <td>看得見風景的房間</td> 
+       <td class=”center”>$30.00</td> 
+   </tr> 
+    <tr id=”row3″> 
+       <td>60個瞬間</td> 
+       <td class=”center”>$32.00</td> 
+   </tr> 
+</table> 
+<input name=”b1″ type=”button” value=”增加一行” onclick=”javascript:addRow();”/><br /> 
+<input name=”b2″ type=”button” value=”刪除第二行” onclick=”javascript:delRow();”/><br /> 
+<input name=”b3″ type=”button” value=”修改標題” onclick=”javascript:updateRow();”/><br /> 
+<div id=”displayInfo”></div> 
+</body> 
+</html>
